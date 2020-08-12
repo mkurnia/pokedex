@@ -1,0 +1,11 @@
+.logo {
+  color: #ffffff;
+  font-size: 30px;
+}
+.content-box {
+  width: 1024px;
+  min-height: 500px;
+  margin: 30px auto;
+}
+
+.cust-col {padding-bottom: 15px;}
