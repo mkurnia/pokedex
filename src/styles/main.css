@@ -1,3 +1,4 @@
+.ant-layout-header {z-index: 99;}
 .logo {
   color: #ffffff;
   font-size: 30px;
@@ -7,5 +8,23 @@
   min-height: 500px;
   margin: 30px auto;
 }
+.content-box .loading {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  background: #ffffff;
+  z-index: 20;
+  font-size: 70px;
+}
+.content-box .loading span {
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 
 .cust-col {padding-bottom: 15px;}
+.content-box .control {text-align: left;}
