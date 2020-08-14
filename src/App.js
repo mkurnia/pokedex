@@ -195,7 +195,7 @@ function App() {
                   ?.map((pokemonStats, i) =>
                     <li key={`pokeStats-${i}`}>
                       <Row>
-                        <Col span={8}>{pokemonStats.stat.name}</Col>
+                        <Col span={8} style={{textTransform: 'capitalize', marginBottom: 10}}>{pokemonStats.stat.name}</Col>
                         <Col span={16}>
                           <Progress
                             strokeColor={{

@@ -66,21 +66,75 @@
   padding-left: 20px !important;
 }
 
-.poke-detail .type-bug {background: #a8b820;}
-.poke-detail .type-dark {background: #705847;}
-.poke-detail .type-dragon {background: #6a38eb;}
-.poke-detail .type-electric {background: #f0ca30;}
-.poke-detail .type-fairy {background: #ff65d5;}
-.poke-detail .type-fighting {background: #903028;}
-.poke-detail .type-fire {background: #f04f31;}
-.poke-detail .type-flying {background: #a189e6;}
-.poke-detail .type-ghost {background: #705898;}
-.poke-detail .type-grass {background: #78c94f;}
-.poke-detail .type-ground {background: #d5b561;}
-.poke-detail .type-ice {background: #97d8d9;}
-.poke-detail .type-normal {background: #a19e71;}
-.poke-detail .type-poison {background: #9c469b;}
-.poke-detail .type-psychic {background: #e95b84;}
-.poke-detail .type-rock {background: #b9a038;}
-.poke-detail .type-steel {background: #b8b8d0;}
-.poke-detail .type-water {background: #6a8de0;}
+.poke-detail .type-bug {
+  background: #a8b820;
+  text-transform: capitalize;
+}
+.poke-detail .type-dark {
+  background: #705847;
+  text-transform: capitalize;
+}
+.poke-detail .type-dragon {
+  background: #6a38eb;
+  text-transform: capitalize;
+}
+.poke-detail .type-electric {
+  background: #f0ca30;
+  text-transform: capitalize;
+}
+.poke-detail .type-fairy {
+  background: #ff65d5;
+  text-transform: capitalize;
+}
+.poke-detail .type-fighting {
+  background: #903028;
+  text-transform: capitalize;
+}
+.poke-detail .type-fire {
+  background: #f04f31;
+  text-transform: capitalize;
+}
+.poke-detail .type-flying {
+  background: #a189e6;
+  text-transform: capitalize;
+}
+.poke-detail .type-ghost {
+  background: #705898;
+  text-transform: capitalize;
+}
+.poke-detail .type-grass {
+  background: #78c94f;
+  text-transform: capitalize;
+}
+.poke-detail .type-ground {
+  background: #d5b561;
+  text-transform: capitalize;
+}
+.poke-detail .type-ice {
+  background: #97d8d9;
+  text-transform: capitalize;
+}
+.poke-detail .type-normal {
+  background: #a19e71;
+  text-transform: capitalize;
+}
+.poke-detail .type-poison {
+  background: #9c469b;
+  text-transform: capitalize;
+}
+.poke-detail .type-psychic {
+  background: #e95b84;
+  text-transform: capitalize;
+}
+.poke-detail .type-rock {
+  background: #b9a038;
+  text-transform: capitalize;
+}
+.poke-detail .type-steel {
+  background: #b8b8d0;
+  text-transform: capitalize;
+}
+.poke-detail .type-water {
+  background: #6a8de0;
+  text-transform: capitalize;
+}
