@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
 import { Layout, Card, Col, Row, Select, Divider, Button, Modal, Progress, Tag, Descriptions } from 'antd';
@@ -7,6 +7,18 @@ import { LoadingOutlined } from '@ant-design/icons';
 const { Header, Footer, Content } = Layout;
 const { Meta } = Card;
 const { Option } = Select;
+const API_POKEMON = 'https://pokeapi.co/api/v2/pokemon';
+const API_POKEMON_TYPES = 'https://pokeapi.co/api/v2/type';
+const IMAGE_URL = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/';
+
+const generateImageUrl = (url) => {
+  if (url) {
+    let pokemonImgUrl = IMAGE_URL;
+    const split = url.match(/^https:\/\/pokeapi.co\/api\/v2\/pokemon\/(\d+)/);
+    return `${pokemonImgUrl}/${split[1]}.svg`;
+  }
+  return '';
+};
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -17,7 +29,6 @@ function App() {
   const [next, setNext] = useState(null);
   const [showDetail, setShowDetail] = useState(false);
   const [showLoadMore, setShowLoadMore] = useState(true);
-
 
   const getListPokemon = (url) => fetch(new URL(url)).then(response => response.json());
 
@@ -33,7 +44,7 @@ function App() {
     })
   }
 
-  const getPokemonTypes = () => fetch(new URL('https://pokeapi.co/api/v2/type'))
+  const getPokemonTypes = () => fetch(new URL(API_POKEMON_TYPES))
     .then(response => response.json())
     .then(responseData => {
       setPokemonTypeList(() => responseData.results);
@@ -69,27 +80,15 @@ function App() {
   };
 
   useEffect(() => {
-    getListPokemenData('https://pokeapi.co/api/v2/pokemon');
+    getListPokemenData(API_POKEMON);
     getPokemonTypes();
   },[]);
-
-  const constructImageUrl = (url) => {
-    if (url) {
-      let pokemonImgUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/';
-      const split = url
-        .split('/')
-        .filter((val) => Number(val))
-        .toString();
-      return `${pokemonImgUrl}${split}.svg`;
-    }
-    return '';
-  };
 
   const loadMore = () => getListPokemenData(next);
   const handleChangeType = async (url) => {
     if(!url) {
       setShowLoadMore(true)
-      getListPokemenData('https://pokeapi.co/api/v2/pokemon', { resetData: true })
+      getListPokemenData(API_POKEMON, { resetData: true })
     } else {
       setShowLoadMore(false)
       getListPokemonByType(url)
@@ -129,7 +128,7 @@ function App() {
                   <Col className="cust-col" span={6} key={`poke-${i}`}>
                     <Card
                       hoverable
-                      cover={<img alt="example" src={constructImageUrl(pokemon.url)} height="200" />}
+                      cover={<img alt="example" src={generateImageUrl(pokemon.url)} height="200" />}
                       onClick={() => modalDetailOpen(pokemon)}
                     >
                       <Meta title={pokemon.name} description="See Detail" />
@@ -154,7 +153,7 @@ function App() {
           <Row gutter={16}>
             <Col span={24} className="align-center"><h1 style={{fontSize: 40}}>{pokemonDetail.name} #{pokemonDetail.order}</h1></Col>
             <Col className="poke-information" span={12}>
-              <img alt="example" src={constructImageUrl(pokeDetailUrl)} width="200" height="200"/>
+              <img alt="example" src={generateImageUrl(pokeDetailUrl)} width="200" height="200"/>
             </Col>
             <Col className="poke-detail" span={12}>
               <Descriptions>
