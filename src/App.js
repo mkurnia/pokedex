@@ -16,6 +16,7 @@ function App() {
   const [pokeDetailUrl, setPokeDetailUrl] = useState(false);
   const [next, setNext] = useState(null);
   const [showDetail, setShowDetail] = useState(false);
+  const [showLoadMore, setShowLoadMore] = useState(true);
 
 
   const getListPokemon = (url) => fetch(new URL(url)).then(response => response.json());
@@ -87,8 +88,10 @@ function App() {
   const loadMore = () => getListPokemenData(next);
   const handleChangeType = async (url) => {
     if(!url) {
+      setShowLoadMore(true)
       getListPokemenData('https://pokeapi.co/api/v2/pokemon', { resetData: true })
     } else {
+      setShowLoadMore(false)
       getListPokemonByType(url)
     }
   }
@@ -119,7 +122,7 @@ function App() {
               </Select>
             </div>
             <Divider />
-            { loading ? <div className="loading"><LoadingOutlined /></div> : ''}
+            { loading ? <div className="loading"><LoadingOutlined /></div> : '' }
             <Row gutter={16} >
               { pokemonList
                 ?.map((pokemon, i) =>
@@ -135,7 +138,7 @@ function App() {
                 )
               }
             </Row>
-            <Button onClick={() => loadMore()} type="primary" size='large'>Load More</Button>
+            { showLoadMore ? <Button onClick={() => loadMore()} type="primary" size='large'>Load More</Button> : '' }
             <Divider />
           </div>
         </Content>
