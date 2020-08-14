@@ -1,4 +1,32 @@
+.align-center {text-align: center;}
+.small-divider {text-transform: capitalize;}
+.small-divider::after {
+  content: '|';
+  padding: 0 7px;
+}
+.small-divider:last-child::after {display: none;}
+.list-style {
+  position: relative;
+  padding-left: 10px;
+  text-transform: capitalize;
+}
+.list-style::after {
+  content: '-';
+  position: absolute;
+  left: 0;
+}
+.list-progress {
+  padding-left: 0;
+  list-style: none;
+}
+
+.ant-modal-wrap {background: #ffffff;}
 .ant-layout-header {z-index: 99;}
+.ant-modal .ant-modal-content {
+  height: 100%;
+  box-shadow: unset;
+}
+
 .logo {
   color: #ffffff;
   font-size: 30px;
@@ -25,6 +53,34 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-
-.cust-col {padding-bottom: 15px;}
 .content-box .control {text-align: left;}
+.cust-col {padding-bottom: 15px;}
+.cust-col .ant-card-cover {padding: 20px;}
+
+.poke-information {
+  text-align: right;
+  padding-right: 20px !important;
+}
+.poke-detail {
+  text-align: left;
+  padding-left: 20px !important;
+}
+
+.poke-detail .type-bug {background: #a8b820;}
+.poke-detail .type-dark {background: #705847;}
+.poke-detail .type-dragon {background: #6a38eb;}
+.poke-detail .type-electric {background: #f0ca30;}
+.poke-detail .type-fairy {background: #ff65d5;}
+.poke-detail .type-fighting {background: #903028;}
+.poke-detail .type-fire {background: #f04f31;}
+.poke-detail .type-flying {background: #a189e6;}
+.poke-detail .type-ghost {background: #705898;}
+.poke-detail .type-grass {background: #78c94f;}
+.poke-detail .type-ground {background: #d5b561;}
+.poke-detail .type-ice {background: #97d8d9;}
+.poke-detail .type-normal {background: #a19e71;}
+.poke-detail .type-poison {background: #9c469b;}
+.poke-detail .type-psychic {background: #e95b84;}
+.poke-detail .type-rock {background: #b9a038;}
+.poke-detail .type-steel {background: #b8b8d0;}
+.poke-detail .type-water {background: #6a8de0;}
